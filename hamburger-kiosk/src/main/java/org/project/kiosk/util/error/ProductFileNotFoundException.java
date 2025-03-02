@@ -1,7 +1,5 @@
 package org.project.kiosk.util.error;
 
-import java.io.FileNotFoundException;
-
 public class ProductFileNotFoundException extends RuntimeException {
     public ProductFileNotFoundException(String message) {
         super(message);
