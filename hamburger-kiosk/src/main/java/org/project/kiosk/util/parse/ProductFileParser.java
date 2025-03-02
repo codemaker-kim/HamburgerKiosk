@@ -11,13 +11,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.project.kiosk.util.parse.ElementIndex.*;
+
 public class ProductFileParser {
 
-    private final int NAME_INDEX = 0;
-    private final int PRICE_INDEX = 1;
-    private final int QUANTITY_INDEX = 2;
-    private final int DESCRIPTION_INDEX = 3;
-    private final int CATEGORY_INDEX = 4;
+    private final int ZERO = 0;
+    private final String NO_QUANTITY = "재고없음";
     private final String QUOTATION_MARK_REGEX = "\"";
     private final String REPLACE_BLANK_REGEX = "";
 
@@ -37,17 +36,24 @@ public class ProductFileParser {
         String[] productElements = productInfo.split(",");
 
         try{
-            String name = productElements[NAME_INDEX];
-            int price = Integer.parseInt(productElements[PRICE_INDEX]);
-            int stockQuantity = Integer.parseInt(productElements[QUANTITY_INDEX]);
-            String description = productElements[DESCRIPTION_INDEX]
+            String name = productElements[NAME_INDEX.getIndex()];
+            int price = Integer.parseInt(productElements[PRICE_INDEX.getIndex()]);
+            int stockQuantity = parseQuantity(productElements[QUANTITY_INDEX.getIndex()]);
+            String description = productElements[DESCRIPTION_INDEX.getIndex()]
                     .replaceAll(QUOTATION_MARK_REGEX, REPLACE_BLANK_REGEX);
-            Category category = parseCategory(productElements[CATEGORY_INDEX]);
+            Category category = parseCategory(productElements[CATEGORY_INDEX.getIndex()]);
 
             return Product.makeProduct(name, price, stockQuantity, description, category);
         } catch(NumberFormatException | ArrayIndexOutOfBoundsException e){
             throw new WrongFileFormatException();
         }
+    }
+
+    private int parseQuantity(String quantity) {
+        if(quantity.equals(NO_QUANTITY))
+            return ZERO;
+
+        return Integer.parseInt(quantity);
     }
 
     private Category parseCategory(String category){
