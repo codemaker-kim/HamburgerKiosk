@@ -1,8 +1,10 @@
-package org.project.kiosk.io.input;
+package org.project.kiosk.util.io.input;
+
+import org.project.kiosk.util.error.ProductFileNotFoundException;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 public class ProductFileLoader {
 
@@ -11,8 +13,8 @@ public class ProductFileLoader {
     public static BufferedReader productFileLoad() {
         try{
             return new BufferedReader(new FileReader(PRODUCT_FILE_LOCATION));
-        } catch(IOException e){
-            throw new IllegalArgumentException(e.getMessage());
+        } catch(FileNotFoundException e) {
+            throw new ProductFileNotFoundException();
         }
     }
 }
