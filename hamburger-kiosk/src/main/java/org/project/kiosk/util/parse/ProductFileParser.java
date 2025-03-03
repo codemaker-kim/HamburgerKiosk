@@ -19,6 +19,7 @@ public class ProductFileParser {
     private final String NO_QUANTITY = "재고없음";
     private final String QUOTATION_MARK_REGEX = "\"";
     private final String REPLACE_BLANK_REGEX = "";
+    private final String COMMA = ",";
 
     public List<Product> parseToProductList(BufferedReader reader) throws IOException {
         List<Product> products = new ArrayList<>();
@@ -33,7 +34,7 @@ public class ProductFileParser {
     }
 
     private Product makeProduct(String productInfo){
-        String[] productElements = productInfo.split(",");
+        String[] productElements = productInfo.split(COMMA);
 
         try{
             String name = productElements[NAME_INDEX.getIndex()];
