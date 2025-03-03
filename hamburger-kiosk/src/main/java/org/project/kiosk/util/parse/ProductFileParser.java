@@ -60,6 +60,6 @@ public class ProductFileParser {
         return Arrays.stream(Category.values())
                 .filter(c -> c.getCategory().equals(category))
                 .findFirst()
-                .orElseThrow(() -> new WrongCategoryException(category));
+                .orElseThrow(WrongCategoryException::new);
     }
 }

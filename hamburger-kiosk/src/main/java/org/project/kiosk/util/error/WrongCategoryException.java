@@ -7,5 +7,5 @@ public class WrongCategoryException extends RuntimeException {
         super(message);
     }
 
-    public WrongCategoryException(Category category) { this(ErrorMessage.WRONG_CATEGORY.getMessage() + category); }
+    public WrongCategoryException() { this(ErrorMessage.WRONG_CATEGORY.getMessage()); }
 }
