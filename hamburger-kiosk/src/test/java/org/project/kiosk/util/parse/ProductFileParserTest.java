@@ -23,6 +23,7 @@ class ProductFileParserTest {
         bos.write("name,price,quantity,description,category\n".getBytes());
         bos.write("치킨버거,7000,15,\"치킨으로 만든 햄버거\",햄버거\n".getBytes());
         bos.write("불고기버거,5000,6,\"불고기로 만든 햄버거\",햄버거\n".getBytes());
+        bos.write("짜장면,5000,재고없음,\"안 팝니다.\",사이드\n".getBytes());
         bos.flush();
 
         File file = new File("test.txt");
@@ -38,7 +39,8 @@ class ProductFileParserTest {
                 .extracting("name", "price", "stockQuantity", "description", "category")
                 .containsExactlyInAnyOrder(
                         tuple("치킨버거", 7000, 15, "치킨으로 만든 햄버거", Category.BURGER),
-                        tuple("불고기버거",5000,6,"불고기로 만든 햄버거", Category.BURGER)
+                        tuple("불고기버거",5000,6,"불고기로 만든 햄버거", Category.BURGER),
+                        tuple("짜장면",5000,0,"안 팝니다.", Category.SIDE)
                 );
     }
 }
