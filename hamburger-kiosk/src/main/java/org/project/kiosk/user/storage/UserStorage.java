@@ -2,10 +2,10 @@ package org.project.kiosk.user.storage;
 
 import org.project.kiosk.user.domain.Role;
 import org.project.kiosk.user.domain.User;
-import org.project.kiosk.user.domain.dto.UserInfo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class UserStorage {
     private final List<User> userList;
@@ -24,5 +24,13 @@ public class UserStorage {
                 return true;
         }
         return false;
+    }
+
+    public Optional<User> findByUuid(String uuid) {
+        for(User user : userList) {
+            if(user.getUuid().equals(uuid))
+                return Optional.of(user);
+        }
+        return Optional.empty();
     }
 }

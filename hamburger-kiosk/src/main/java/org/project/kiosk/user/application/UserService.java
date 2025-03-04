@@ -4,6 +4,7 @@ import org.project.kiosk.user.domain.Role;
 import org.project.kiosk.user.domain.User;
 import org.project.kiosk.user.error.AlreadyExistUserException;
 import org.project.kiosk.user.error.NegativeMoneyException;
+import org.project.kiosk.user.error.UserNotFoundException;
 import org.project.kiosk.user.error.WrongIdFormatException;
 import org.project.kiosk.user.storage.UserStorage;
 
@@ -21,8 +22,9 @@ public class UserService {
         userStorage.save(User.createUser(uuid, money, role));
     }
 
-    public User findByUUID(String uuid) {
-        return null;
+    public User login(String uuid) {
+        return userStorage.findByUuid(uuid)
+                .orElseThrow(UserNotFoundException::new);
     }
 
     private void validateUser(String uuid, Role role) {
