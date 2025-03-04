@@ -30,6 +30,8 @@ public class ProductFileParser {
             products.add(makeProduct(productInfo));
         }
 
+        reader.close();
+
         return products;
     }
 
