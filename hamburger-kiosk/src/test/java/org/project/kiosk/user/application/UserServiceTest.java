@@ -7,6 +7,7 @@ import org.project.kiosk.user.domain.Role;
 import org.project.kiosk.user.domain.User;
 import org.project.kiosk.user.error.AlreadyExistUserException;
 import org.project.kiosk.user.error.NegativeMoneyException;
+import org.project.kiosk.user.error.UserNotFoundException;
 import org.project.kiosk.user.error.WrongIdFormatException;
 import org.project.kiosk.user.storage.UserStorage;
 
@@ -71,5 +72,17 @@ class UserServiceTest {
         //when & then
         assertThatThrownBy(() -> userService.save(uuid, money, ROLE_MANAGER))
                 .isInstanceOf(WrongIdFormatException.class);
+    }
+
+    @Test
+    @DisplayName("존재하지 않는 사용자로 로그인하면, 예외를 발생시킨다.")
+    void userServiceTest5() {
+        //given
+        String uuid = "관리자1";
+        int money = 10000;
+
+        //when & then
+        assertThatThrownBy(() -> userService.login(uuid))
+                .isInstanceOf(UserNotFoundException.class);
     }
 }
