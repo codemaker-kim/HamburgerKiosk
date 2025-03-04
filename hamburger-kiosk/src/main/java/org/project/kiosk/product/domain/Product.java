@@ -7,14 +7,6 @@ public class Product {
     private String description;
     private Category category;
 
-//    public Product(String name, int price, int stockQuantity, String description, Category category) {
-//        this.name = name;
-//        this.price = price;
-//        this.stockQuantity = stockQuantity;
-//        this.description = description;
-//        this.category = category;
-//    }
-
     private Product() {
     }
 
@@ -27,5 +19,9 @@ public class Product {
         product.category = category;
 
         return product;
+    }
+
+    void reduceQuantity(int purchaseQuantity){
+        stockQuantity-=purchaseQuantity;
     }
 }
