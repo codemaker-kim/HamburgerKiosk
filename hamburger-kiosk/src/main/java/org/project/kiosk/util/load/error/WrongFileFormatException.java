@@ -1,9 +1,9 @@
-package org.project.kiosk.util.error;
+package org.project.kiosk.util.load.error;
 
 public class WrongFileFormatException extends RuntimeException {
     public WrongFileFormatException(String message) {
         super(message);
     }
 
-    public WrongFileFormatException() { this(ErrorMessage.WRONG_FILE_FORMAT.getMessage()); }
+    public WrongFileFormatException() { this(FileLoadErrorMessage.WRONG_FILE_FORMAT.getMessage()); }
 }
