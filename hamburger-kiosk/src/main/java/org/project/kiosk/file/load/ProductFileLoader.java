@@ -1,6 +1,6 @@
-package org.project.kiosk.util.load;
+package org.project.kiosk.file.load;
 
-import org.project.kiosk.util.load.error.ProductFileNotFoundException;
+import org.project.kiosk.file.load.error.ProductFileNotFoundException;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,4 +1,4 @@
-package org.project.kiosk.util.load.error;
+package org.project.kiosk.file.load.error;
 
 public enum FileLoadErrorMessage {
     PRODUCT_FILE_NOT_FOUND("상품 등록 파일을 찾을 수 없습니다."),

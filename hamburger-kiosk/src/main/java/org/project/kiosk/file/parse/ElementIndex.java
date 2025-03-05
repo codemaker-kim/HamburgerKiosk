@@ -1,4 +1,4 @@
-package org.project.kiosk.util.parse;
+package org.project.kiosk.file.parse;
 
 public enum ElementIndex {
     NAME_INDEX(0),

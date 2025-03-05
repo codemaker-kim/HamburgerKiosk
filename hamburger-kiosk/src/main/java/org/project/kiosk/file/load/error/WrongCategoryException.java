@@ -1,4 +1,4 @@
-package org.project.kiosk.util.load.error;
+package org.project.kiosk.file.load.error;
 
 public class WrongCategoryException extends RuntimeException {
     public WrongCategoryException(String message) {

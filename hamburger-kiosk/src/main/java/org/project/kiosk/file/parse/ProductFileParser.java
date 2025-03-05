@@ -1,10 +1,9 @@
-package org.project.kiosk.util.parse;
+package org.project.kiosk.file.parse;
 
 import org.project.kiosk.product.domain.Category;
 import org.project.kiosk.product.domain.Product;
-import org.project.kiosk.util.Separator;
-import org.project.kiosk.util.load.error.WrongCategoryException;
-import org.project.kiosk.util.load.error.WrongFileFormatException;
+import org.project.kiosk.file.load.error.WrongCategoryException;
+import org.project.kiosk.file.load.error.WrongFileFormatException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.project.kiosk.util.Separator.COMMA;
-import static org.project.kiosk.util.parse.ElementIndex.*;
+import static org.project.kiosk.file.parse.ElementIndex.*;
 
 public class ProductFileParser {
 

@@ -2,6 +2,7 @@ package org.project.kiosk.util.parse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.project.kiosk.file.parse.ProductFileParser;
 import org.project.kiosk.product.domain.Category;
 import org.project.kiosk.product.domain.Product;
 

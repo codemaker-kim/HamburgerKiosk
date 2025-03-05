@@ -1,4 +1,4 @@
-package org.project.kiosk.util.load.error;
+package org.project.kiosk.file.load.error;
 
 public class ProductFileNotFoundException extends RuntimeException {
     public ProductFileNotFoundException(String message) {
