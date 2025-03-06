@@ -24,4 +24,24 @@ public class Product {
     void reduceQuantity(int purchaseQuantity){
         stockQuantity-=purchaseQuantity;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getStockQuantity() {
+        return stockQuantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
 }

@@ -1,7 +1,5 @@
 package org.project.kiosk.user.domain;
 
-import org.project.kiosk.user.domain.dto.UserInfo;
-
 public class User {
     private String uuid;
     private int money;

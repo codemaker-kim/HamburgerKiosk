@@ -1,7 +1,8 @@
 package org.project.kiosk.util;
 
 public enum Separator {
-    COMMA(",");
+    COMMA(","),
+    BLANK(" ");
 
     private final String separator;
 
